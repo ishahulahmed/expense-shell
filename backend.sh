@@ -49,10 +49,10 @@ else
 fi
 
 mkdir -p /app &>>$LOGFILE
-VALIDATE &? "Creating app director"
+VALIDATE &? "Creating app directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE
-VALIDATE $? "Downloading backned code"
+VALIDATE $? "Downloading backend code"
 
 cd /app
 unzip /tmp/backend.zip &>>$LOGFILE
@@ -81,3 +81,4 @@ VALIDATE $? "Schema loading"
 
 systemctl restart backend &>>$LOGFILE
 VALIDATE $? "Restarting Backend"
+
